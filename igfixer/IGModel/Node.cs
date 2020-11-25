@@ -4,10 +4,10 @@ using System.Linq;
 namespace IGFixer.IGModel
 {
     /// <summary>
-    /// Node in an IG tree.
+    /// Abstract node in an IG tree.
     /// </summary>
     /// <seealso cref="IGFixer.IGModel.NodeBase" />
-    class Node : NodeBase
+    public abstract class Node : NodeBase
     {
         public override int? SpanStart
         {
@@ -42,7 +42,7 @@ namespace IGFixer.IGModel
         private int? _absoluteSpanStart;
         private int? _spanStart;
 
-        public Node(Node parent = null)
+        protected Node(Node parent = null)
         {
             Parent = parent;
             Children = new List<Node>();
@@ -122,8 +122,31 @@ namespace IGFixer.IGModel
 
         public override string ToString()
         {
-            return $"Node: {{{Text ?? ""}}}, start: {SpanStart?.ToString() ?? "MISSING"}, " +
+            return $"{NodeTypeText}: {{{Text ?? ""}}}, start: {SpanStart?.ToString() ?? "MISSING"}, " +
                    $"length: {SpanLength?.ToString() ?? "MISSING"}";
         }
+
+        /// <summary>
+        /// Should return the long name of the type of this node.
+        /// </summary>
+        /// <value>
+        /// The long name of the type of this node.
+        /// </value>
+        public abstract string NodeTypeText { get; }
+
+        /// <summary>
+        /// Should return the abbreviated name of the type of this node.
+        /// </summary>
+        /// <value>
+        /// The abbreviated name of the type of this node.
+        /// </value>
+        public abstract string NodeTypeShort { get; }
+    }
+
+    public class NodeSentence : Node
+    {
+        public override string NodeTypeText => "Sentence";
+
+        public override string NodeTypeShort => null;
     }
 }

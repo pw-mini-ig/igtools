@@ -7,7 +7,7 @@ namespace IGFixer.IGModel
     /// Represents a set of mutations that should be applied to a node to make it valid.
     /// Properties of this object will be used to change the values of corresponding properties
     /// </summary>
-    class NodeFix : NodeBase
+    public class NodeFix : NodeBase
     {
         public Node TargetNode { get; }
 
