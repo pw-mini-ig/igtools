@@ -3,7 +3,7 @@
     /// <summary>
     /// Abstract base for <see cref="Node"/> and <see cref="NodeFix"/>.
     /// </summary>
-    abstract class NodeBase
+    public abstract class NodeBase
     {
         /// <summary>
         /// Gets or sets the span's start position.

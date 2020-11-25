@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
+using System.Xml.Serialization;
 using IGFixer.IGModel;
 
 namespace IGFixer
@@ -8,7 +10,14 @@ namespace IGFixer
     {
         static void Main(string[] args)
         {
-            const string test = "hopsa hopsa od sasa do lasa";
+            var serializer = new XmlSerializer(typeof(Xml.Sentence));
+            Xml.Sentence fromFile;
+            using (var fs = new FileStream("example.xml", FileMode.Open))
+            {
+                fromFile = (Xml.Sentence) serializer.Deserialize(fs);
+            }
+
+            /*const string test = "hopsa hopsa od sasa do lasa";
 
             var root = new Node
             {
@@ -42,7 +51,7 @@ namespace IGFixer
                 status.PossibleFixes.First().Apply();
                 Console.WriteLine(tree);
             }
-            
+            */
 
             Console.ReadLine();
         }

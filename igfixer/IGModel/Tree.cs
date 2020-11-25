@@ -2,7 +2,7 @@
 
 namespace IGFixer.IGModel
 {
-    class Tree
+    public class Tree
     {
         public string Text { get; }
         public Node Root { get; }

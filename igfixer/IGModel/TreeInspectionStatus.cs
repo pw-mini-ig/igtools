@@ -3,7 +3,7 @@ using System.Text;
 
 namespace IGFixer.IGModel
 {
-    enum TreeInspectionProblemType
+    public enum TreeInspectionProblemType
     {
         InvalidStructure,
         NoTextInNode,
@@ -12,14 +12,14 @@ namespace IGFixer.IGModel
         InvalidTextSpanPosition
     }
 
-    enum TreeInspectionAutofixStatus
+    public enum TreeInspectionAutofixStatus
     {
         Impossible,
         Ambiguous,
         Possible
     }
 
-    class TreeInspectionStatus
+    public class TreeInspectionStatus
     {
         public bool IsOk { get; }
         public Node ProblematicNode { get; }
