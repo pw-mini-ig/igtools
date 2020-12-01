@@ -5,6 +5,8 @@ namespace IgTool.IgModel
 {
     /// <summary>
     /// Abstract node in an IG tree.
+    ///
+    /// Note: 
     /// </summary>
     /// <seealso cref="NodeBase" />
     public abstract class Node : NodeBase
@@ -142,12 +144,5 @@ namespace IgTool.IgModel
         /// The abbreviated name of the type of this node.
         /// </value>
         public abstract string NodeTypeShort { get; }
-    }
-
-    public class NodeDocument : Node
-    {
-        public override string NodeTypeText => "Document";
-
-        public override string NodeTypeShort => null;
     }
 }
