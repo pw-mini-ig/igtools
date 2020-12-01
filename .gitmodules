@@ -1,0 +1,3 @@
+[submodule "ig-json-schema"]
+	path = ig-json-schema
+	url = https://github.com/pw-mini-ig/ig-json-schema
