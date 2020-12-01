@@ -5,4 +5,10 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Content Include="..\ig-json-schema\ig-schema.yaml">
+        <Link>ig-schema.yaml</Link>
+      </Content>
+    </ItemGroup>
+
 </Project>
