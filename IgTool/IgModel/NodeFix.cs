@@ -1,7 +1,7 @@
 ﻿using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
-namespace IGFixer.IGModel
+namespace IgTool.IgModel
 {
     /// <summary>
     /// Represents a set of mutations that should be applied to a node to make it valid.

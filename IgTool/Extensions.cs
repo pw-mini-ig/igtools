@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace IGFixer
+namespace IgTool
 {
     static class Extensions
     {

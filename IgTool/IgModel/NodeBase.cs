@@ -1,4 +1,4 @@
-﻿namespace IGFixer.IGModel
+﻿namespace IgTool.IgModel
 {
     /// <summary>
     /// Abstract base for <see cref="Node"/> and <see cref="NodeFix"/>.

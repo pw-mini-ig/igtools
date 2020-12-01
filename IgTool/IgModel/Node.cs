@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace IGFixer.IGModel
+namespace IgTool.IgModel
 {
     /// <summary>
     /// Abstract node in an IG tree.
     /// </summary>
-    /// <seealso cref="IGFixer.IGModel.NodeBase" />
+    /// <seealso cref="NodeBase" />
     public abstract class Node : NodeBase
     {
         public override int? SpanStart
@@ -100,7 +100,8 @@ namespace IGFixer.IGModel
                 {
                     var status = new TreeInspectionStatus(false, this,
                         TreeInspectionProblemType.InvalidTextSpanPosition);
-                    var fixes = parentOccurences.Select(x => new NodeFix(this) { SpanStart = x });
+                    var fixes = parentOccurences
+                        .Select(x => new NodeFix(this) { SpanStart = x });
                     status.AddNodeFixRange(fixes);
                     return status;
                 }
@@ -143,9 +144,9 @@ namespace IGFixer.IGModel
         public abstract string NodeTypeShort { get; }
     }
 
-    public class NodeSentence : Node
+    public class NodeDocument : Node
     {
-        public override string NodeTypeText => "Sentence";
+        public override string NodeTypeText => "Document";
 
         public override string NodeTypeShort => null;
     }

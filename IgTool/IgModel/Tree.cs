@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace IGFixer.IGModel
+namespace IgTool.IgModel
 {
     public class Tree
     {

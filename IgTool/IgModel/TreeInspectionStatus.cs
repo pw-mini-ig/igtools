@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
-namespace IGFixer.IGModel
+namespace IgTool.IgModel
 {
     public enum TreeInspectionProblemType
     {
