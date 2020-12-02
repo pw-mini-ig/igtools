@@ -80,7 +80,9 @@ namespace IgTool
             try
             {
                 savedJson = YamlTools.ConvertYamlToJson(
-                    opt.Filename, opt.Target, YamlOptions.StringsToBools);
+                    opt.Filename, opt.Target, 
+                    YamlOptions.StringsToBools | YamlOptions.StringsToInts
+                );
             }
             catch (Exception ex)
             {
@@ -135,10 +137,9 @@ namespace IgTool
                     Console.Error.WriteLine($"Document #{counter + 1} is invalid:");
                     foreach (var errorMessage in messages)
                         Console.Error.WriteLine(errorMessage);
-                    return;
                 }
-                
-                validCounter++;
+                else validCounter++;
+
                 counter++;
             }
 

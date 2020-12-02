@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using YamlDotNet.Serialization;
 
 namespace IgTool.Json
@@ -11,11 +12,14 @@ namespace IgTool.Json
     {
         None = 0x00,
         StringsToBools = 0x01,
-        PrettyPrint = 0x02
+        StringsToInts = 0x02,
+        PrettyPrint = 0x04
     }
     
     public static class YamlTools
     {
+        private static readonly Regex IntegerRegex = new Regex(@"""(\d+)""", RegexOptions.Compiled);
+        
         public static string ConvertYamlToJson(string file, string target, YamlOptions options = YamlOptions.None)
         {
             file = file.Trim();
@@ -75,6 +79,14 @@ namespace IgTool.Json
                     .Replace("\"true\"", "true", true, null)
                     .Replace("\"false\"", "false", true, null)
                 );
+            }
+
+            if (options.HasFlag(YamlOptions.StringsToInts))
+            {
+                // MORE HACKS:
+                // Convert strings to integers. For the same reason as above. Sigh.
+                res = res.Select(json => 
+                    IntegerRegex.Replace(json, match => match.Groups[1].Value));
             }
 
             return res;
